@@ -5,6 +5,69 @@ same task. It runs real Claude calls, then shows latency, token usage, cost,
 efficiency, and quality so you can see which prompting strategy performs best
 for a given question.
 
+## Quick Start
+
+### 1. Clone The Repository
+
+```bash
+git clone https://github.com/AITestingMastery/prompt_engineering_lab.git
+cd prompt_lab
+```
+
+### 2. Create A Virtual Environment
+
+```bash
+cd backend
+python -m venv .venv
+```
+
+### 3. Activate The Virtual Environment
+
+Windows:
+
+```bash
+.\.venv\Scripts\activate
+```
+
+macOS / Linux:
+
+```bash
+source .venv/bin/activate
+```
+
+### 4. Install Dependencies
+
+Backend:
+
+```bash
+pip install -r requirements.txt
+```
+
+Frontend:
+
+```bash
+cd ../frontend
+npm install
+```
+
+### 5. Run The App
+
+Start the backend:
+
+```bash
+cd backend
+python app.py
+```
+
+In a second terminal, start the frontend:
+
+```bash
+cd frontend
+npm start
+```
+
+Then open `http://localhost:5000` in your browser.
+
 ## What It Compares
 
 The UI can compare these prompt styles:
