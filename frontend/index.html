@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="./l1.png" type="image/png">
+<title>Prompt Bench</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="pb-root">
+    <div class="pb-title">Prompting strategy comparator</div>
+    <div class="pb-panel">
+      <span class="pb-label">Task / question to test</span>
+      <textarea id="pb-task" placeholder="e.g. Explain why the sky is blue, in a way a 10 year old would understand.">Explain why the sky is blue, in a way a 10 year old would understand.</textarea>
+    </div>
+
+    <div class="pb-panel">
+      <span class="pb-label">Prompting styles to run</span>
+      <div class="pb-grid" id="pb-grid"></div>
+    </div>
+
+    <div class="pb-panel">
+      <div class="pb-row">
+        <div class="pb-field">
+          <span class="pb-label">$ / M input tok</span>
+          <input id="pb-price-in" type="number" step="0.01" value="3.00">
+        </div>
+        <div class="pb-field">
+          <span class="pb-label">$ / M output tok</span>
+          <input id="pb-price-out" type="number" step="0.01" value="15.00">
+        </div>
+        <div style="flex:1"></div>
+        <button id="pb-run">Run comparison</button>
+        <span id="pb-status"></span>
+      </div>
+      <div class="pb-hint">
+        Based on current market rates.
+      </div>
+    </div>
+
+    <div class="pb-panel" id="pb-gen-panel" style="display:none;">
+      <div class="pb-results-head">
+        <span class="pb-section-title">Generated prompts (tailored to your task)</span>
+        <button class="pb-preview-btn" id="pb-gen-toggle">view</button>
+      </div>
+      <div class="pb-hint" id="pb-gen-meta" style="margin:0 0 8px;"></div>
+      <div class="pb-preview" id="pb-gen-preview"></div>
+    </div>
+
+    <div class="pb-panel" id="pb-results-panel" style="display:none;">
+      <div class="pb-results-head">
+        <span class="pb-section-title">Results</span>
+        <span class="pb-hint" style="margin:0;">tap a row to view the exact prompt + response</span>
+      </div>
+      <table class="pb-table" id="pb-table">
+        <thead>
+          <tr>
+            <th>Style</th>
+            <th>Time</th>
+            <th>In / Out tok</th>
+            <th>Tok/sec</th>
+            <th>Cost</th>
+            <th>Efficiency</th>
+            <th>Quality</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="pb-tbody"></tbody>
+      </table>
+      <div id="pb-error" class="pb-error"></div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
