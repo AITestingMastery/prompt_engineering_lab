@@ -11,7 +11,6 @@ for a given question.
 
 ```bash
 git clone https://github.com/AITestingMastery/prompt_engineering_lab.git
-cd prompt_lab
 ```
 
 ### 2. Create A Virtual Environment
